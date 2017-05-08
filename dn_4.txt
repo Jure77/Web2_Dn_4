@@ -1,0 +1,21 @@
+SELECT COUNT(*), Region.name FROM JobAd
+INNER JOIN Company ON Company.ID = JobAd.companyID
+INNER JOIN Region ON Region.ID = Company.regionID
+GROUP BY Region.name
+
+-------------------------------------------------------
+
+
+SELECT Company.name FROM Company
+JOIN JobAd ON Company.ID = JobAd.companyID
+JOIN JobType ON JobType.ID = JobAd.jobTypeID
+WHERE JobType.name = 'IT'
+GROUP BY Company.name
+
+---------------------------------------------------------
+SELECT JobType.name, User.username, email, type FROM JobType
+JOIN User ON User.JobTypeID = JobType.ID
+WHERE JobType.name = 'Raèunovodstvo'
+--------------------------------------------------------------
+SELECT COUNT(*) FROM JobAd
+WHERE fullTime = 'yes'
